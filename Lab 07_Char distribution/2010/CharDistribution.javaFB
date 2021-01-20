@@ -1,0 +1,45 @@
+<pre><span bgcode="0" class="data" id="line1">import java.util.Scanner;</span>
+<span bgcode="0" class="data" id="line2">import java.io.*;</span>
+<span bgcode="0" class="data" id="line3"></span>
+<span bgcode="0" class="data" id="line4">public class CharDistribution{</span>
+<span bgcode="0" class="data" id="line5"></span>
+<span bgcode="0" class="data" id="line6">   public static void main(String[] args) throws FileNotFoundException{</span>
+<span bgcode="0" class="data" id="line7">      </span>
+<span bgcode="0" class="data" id="line8">      print( charCounting( new File( args[0] ) ) );  </span>
+<span bgcode="0" class="data" id="line9">      </span>
+<span bgcode="0" class="data" id="line10">      </span>
+<span bgcode="0" class="data" id="line11">   }</span>
+<span bgcode="0" class="data" id="line12">   </span>
+<span bgcode="0" class="data" id="line13">   public static int[] charCounting( String str ) {</span>
+<span bgcode="0" class="data" id="line14">      //counts number of times each of alpha char appears in a String.</span>
+<span bgcode="0" class="data" id="line15">      //A = 65 - 90 = Z</span>
+<span bgcode="0" class="data" id="line16">      int[] alpha = new int[26];</span>
+<span bgcode="0" class="data" id="line17">      String s = str.toUpperCase();</span>
+<span bgcode="0" class="data" id="line18">      for( int i = 0; i &lt; s.length(); i++ ) {</span>
+<span bgcode="1" class="data" id="line19" style="background-color: rgb(214, 234, 248);">         if( s.charAt(i) - 65 &gt;= 0 &amp;&amp; s.charAt(i) - 65 &lt;= 26 ) {</span>
+<span bgcode="0" class="data" id="line20">            alpha[ s.charAt( i ) - 65 ]++;</span>
+<span bgcode="0" class="data" id="line21">         }</span>
+<span bgcode="0" class="data" id="line22">         //alpha[ s.charAt( i ) - 65 ]</span>
+<span bgcode="0" class="data" id="line23">      }</span>
+<span bgcode="0" class="data" id="line24">      return alpha;</span>
+<span bgcode="0" class="data" id="line25">   }</span>
+<span bgcode="0" class="data" id="line26">   </span>
+<span bgcode="0" class="data" id="line27">   public static int[] charCounting( File file ) throws FileNotFoundException{</span>
+<span bgcode="0" class="data" id="line28">      //counts number times alpha char appears in data file</span>
+<span bgcode="0" class="data" id="line29">      Scanner scan = new Scanner( file );</span>
+<span bgcode="0" class="data" id="line30">      String line = "";</span>
+<span bgcode="0" class="data" id="line31">      while( scan.hasNextLine() ) {</span>
+<span bgcode="0" class="data" id="line32">         line += scan.nextLine();</span>
+<span bgcode="0" class="data" id="line33">      }</span>
+<span bgcode="0" class="data" id="line34">      return charCounting( line );</span>
+<span bgcode="0" class="data" id="line35">   }</span>
+<span bgcode="0" class="data" id="line36">   </span>
+<span bgcode="0" class="data" id="line37">   public static void print( int[] c ) {</span>
+<span bgcode="0" class="data" id="line38">      //print the int array in format</span>
+<span bgcode="0" class="data" id="line39">      for( int i = 0; i &lt; 26; i++ ) {</span>
+<span bgcode="0" class="data" id="line40">         System.out.println( (char)(i+65) + ": " + c[i] );</span>
+<span bgcode="0" class="data" id="line41">      }</span>
+<span bgcode="0" class="data" id="line42">   }</span>
+<span bgcode="0" class="data" id="line43"></span>
+<span bgcode="0" class="data" id="line44">}</span>
+</pre><br><br><br><br><br><br><br><br><br><br><span class="commentBox" placeholder="Type your comments" contenteditable="" style="top: 234px; left: 527px; z-index: 2;">Comment:<br>should be &lt;26</span>
